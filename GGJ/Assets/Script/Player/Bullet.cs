@@ -22,11 +22,10 @@ public class Bullet : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) {
-
-
+            other.GetComponent<EnemyController>().TakeDamage(bulletDamage);
 
             if (bulletHitEffect != null) {
-                Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, -0.25f);
+                Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
                 GameObject bulletObject = Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
                 Destroy(bulletObject, 0.5f);
             }
