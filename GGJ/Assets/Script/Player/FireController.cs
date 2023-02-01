@@ -40,7 +40,7 @@ public class FireController : MonoBehaviour
     IEnumerator Fire()
     {
         canFire = false;
-        bullet = Instantiate(m_bullet, spawnPoint.position, Quaternion.identity);
+        bullet = Instantiate(m_bullet, spawnPoint.position, spawnPoint.rotation);
         bullet.AddForce(spawnPoint.forward * bulletSpeed, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().SpawnBullet(bulletDamage);
 
