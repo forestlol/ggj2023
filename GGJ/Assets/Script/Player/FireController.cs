@@ -42,6 +42,7 @@ public class FireController : MonoBehaviour
         canFire = false;
         bullet = Instantiate(m_bullet, spawnPoint.position, Quaternion.identity);
         bullet.AddForce(spawnPoint.forward * bulletSpeed, ForceMode.Impulse);
+        bullet.GetComponent<Bullet>().SpawnBullet(bulletDamage);
 
         yield return new WaitForSeconds(fireRate);
         canFire = true;
