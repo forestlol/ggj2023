@@ -1,10 +1,15 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class FireController : MonoBehaviour
 {
+    [Header("Main Animator")]
+    [SerializeField]
+    Animator anim;
+
     [Header("Fire point")]
     [SerializeField]
     Transform spawnPoint;
@@ -15,34 +20,20 @@ public class FireController : MonoBehaviour
     [SerializeField]
     Weapon currentWeapon;
 
-    [Space(10)]
-
-    [Header("List of Weapons")]
-    [SerializeField]
-    List<Weapon> weapons;
-
     Rigidbody bullet;
     bool canFire = true;
 
-    Dictionary<string, Weapon> weaponDict = new Dictionary<string, Weapon>();
-
     private void Start()
     {
-        AddWeaponToDictionary();
+        currentWeapon = GameManager.instance.GetWeaponType("Pistol");
     }
 
-    void AddWeaponToDictionary()
-    {
-        for (int i = 0; i < weapons.Count; ++i)
-        {
-            weaponDict[weapons[i].weaponName] = weapons[i];
-        }
-
-        currentWeapon = weaponDict[weapons[0].weaponName];
-    }
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.E))
+            GameManager.instance.BuyWeapon(GameManager.instance.GetWeaponType("Rocket"));
+
         if (!Input.GetMouseButton(0))
             return;
 
@@ -63,26 +54,8 @@ public class FireController : MonoBehaviour
         canFire = true;
     }
 
-    public void GetWeaponType(string weaponName)
+    public void SetWeapon(Weapon weapon)
     {
-        currentWeapon.weaponMesh.SetActive(false);
-        currentWeapon = weaponDict[weaponName];
-        currentWeapon.weaponMesh.SetActive(true);
+        currentWeapon = weapon;
     }
-}
-
-[Serializable]
-public class Weapon
-{
-    [Header("Bullet Statistics")]
-    public string weaponName;
-    public GameObject weaponMesh;
-    public Rigidbody bullet;
-    [Range(0.05f, 1f)]
-    public float fireRate;
-    [Range(1, 10)]
-    public int bulletDamage;
-    [Range(1, 10)]
-    public int bulletSpeed;
-    public GameObject hitEffect;
 }

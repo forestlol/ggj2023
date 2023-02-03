@@ -8,12 +8,6 @@ public class Bullet : MonoBehaviour
 
     private GameObject bulletHitEffect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        Destroy(gameObject, 1);
-    }
-
     public void SpawnBullet(int _damage)
     {
         bulletDamage = _damage;
