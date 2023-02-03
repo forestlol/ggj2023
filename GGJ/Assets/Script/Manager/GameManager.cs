@@ -9,22 +9,28 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     FireController player;
 
+    [Space]
+
+    [SerializeField]
+    GameObject levelUpPanel;
+
     [Space(10)]
 
     [Header("List of Weapons")]
     [SerializeField]
     List<Weapon> weapons;
 
-    int cash;
-
     public static GameManager instance;
 
     Dictionary<string, Weapon> weaponDict = new Dictionary<string, Weapon>();
     List<string> weaponNameList = new List<string>();
-
-    // To do create a shop system 
-    // Generate 3 random weapon from the list of string (List<string> weaponNameList)
-    // Add BuyWeapon method to the button 
+    List<Weapon> generatedWeapon = new List<Weapon>();
+    int currentLevel;
+    [SerializeField]
+    int experience;
+    [SerializeField]
+    int expCap = 100;
+    Weapon weapon;
 
     private void Awake()
     {
@@ -44,25 +50,66 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void IncreaseCase(int amount)
+    public void IncreaseEXP(int amount)
     {
-        cash += amount;
-    }
+        experience += ((amount * currentLevel) + (10 + currentLevel^2));
 
-    public void BuyWeapon(Weapon weapon)
-    {
-        cash = 0;
-        GiveWeapon(weapon);
+        if (experience > expCap)
+            LevelUp();
     }
 
     void GiveWeapon(Weapon weapon)
     {
-        player.SetWeapon(weapon);
+        player.TakeWeapon(weapon);
     }
 
     public Weapon GetWeaponType(string weaponName)
     {
         return weaponDict[weaponName];
+    }
+
+    void LevelUp()
+    {
+        expCap = expCap + (expCap * currentLevel) + (10 * currentLevel^2);
+        GenerateWeaponForLevelUp();
+        ++currentLevel;
+        experience = 0;
+        levelUpPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
+
+    void GenerateWeaponForLevelUp()
+    {
+        generatedWeapon.Clear();
+
+        for (int i = 0; i < 3; ++i)
+        {
+            weapon = weaponDict[weaponNameList[UnityEngine.Random.Range(0, weaponNameList.Count)]];
+            generatedWeapon.Add(weapon);
+        }
+    }
+
+    public void SelectWeapon(int value)
+    {
+        levelUpPanel.SetActive(false);
+        GiveWeapon(generatedWeapon[value]);
+        Time.timeScale = 1;
+    }
+
+    public Weapon UpgradeWeapon(Weapon weapon)
+    {
+        Weapon temp = weapon;
+        ++temp.weaponLevel;
+        temp.bulletDamage += temp.bulletDamage;
+
+        if (temp.weaponLevel % 2 == 0)
+            temp.fireRate *= 0.9f;
+        else if (temp.weaponLevel % 3 == 0)
+        {
+            ++temp.numberOfBullet;
+            temp.coolDown *= 0.9f;
+        }
+        return temp;
     }
 }
 
@@ -74,21 +121,23 @@ public class Weapon
 
     [Space(5)]
 
+    public int weaponLevel;
     public GameObject weaponMesh;
     public Rigidbody bullet;
-    [Range(0.05f, 3f)]
+
+    [Space]
+
     public float fireRate;
-    [Range(1, 10)]
+    public int numberOfBullet;
     public int bulletDamage;
-    [Range(10, 100)]
     public int bulletSpeed;
-    public int cost;
+
+    [Space]
+    public float coolDown;
 
     [Space]
 
     public GameObject hitEffect;
 
-    [Space]
-    public AnimatorController controller;
-
+    public bool canFire;
 }

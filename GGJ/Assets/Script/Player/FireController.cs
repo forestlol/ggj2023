@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor.Animations;
 using UnityEngine;
 
 public class FireController : MonoBehaviour
 {
+    [Header("Gun object")]
+    [SerializeField]
+    Gun gunObj;
+
     [Header("Main Animator")]
     [SerializeField]
     Animator anim;
@@ -16,50 +21,39 @@ public class FireController : MonoBehaviour
 
     [Space]
 
-    [Header("Current Weapon")]
+    [Header("Current Weapon Equipped")]
     [SerializeField]
-    Weapon currentWeapon;
+    List<Weapon> currentWeapon;
+    [SerializeField]
+    List<Gun> guns;
 
-    Rigidbody bullet;
-    bool canFire = true;
+    Dictionary <string, Weapon> currentWeaponDict = new Dictionary<string, Weapon>();
+    Dictionary<Weapon, Gun> gunDict = new Dictionary<Weapon, Gun>();
+    Gun gun;
 
     private void Start()
     {
-        currentWeapon = GameManager.instance.GetWeaponType("Pistol");
-        SetWeapon(currentWeapon);
+        //currentWeapon.Add(GameManager.instance.GetWeaponType("Pistol"));
+        TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
     }
 
-    // Update is called once per frame
-    void Update()
+    public void TakeWeapon(Weapon weapon)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            GameManager.instance.BuyWeapon(GameManager.instance.GetWeaponType("Rocket"));
+        if (!currentWeapon.Contains(weapon))
+        {
+            currentWeapon.Add(weapon);
+            currentWeaponDict[weapon.weaponName] = weapon;
 
-        if (!Input.GetMouseButton(0))
+            gun = Instantiate(gunObj, spawnPoint.transform);
+            gun.AddStats(weapon, spawnPoint);
+            guns.Add(gun);
+            gunDict[weapon] = gun;
+
             return;
+        }
 
-        if (!canFire)
-            return;
+        currentWeaponDict[weapon.weaponName] = GameManager.instance.UpgradeWeapon(weapon);
+        gunDict[currentWeaponDict[weapon.weaponName]].AddStats(currentWeaponDict[weapon.weaponName], spawnPoint);
 
-        StartCoroutine(Fire());
-    }
-
-    IEnumerator Fire()
-    {
-        canFire = false;
-        bullet = Instantiate(currentWeapon.bullet, spawnPoint.position, spawnPoint.rotation);
-        bullet.AddForce(spawnPoint.forward * currentWeapon.bulletSpeed, ForceMode.Impulse);
-        bullet.GetComponent<Bullet>().SpawnBullet(currentWeapon.bulletDamage);
-        bullet.GetComponent<Bullet>().SetHitEffect(currentWeapon.hitEffect);
-        yield return new WaitForSeconds(currentWeapon.fireRate);
-        canFire = true;
-    }
-
-    public void SetWeapon(Weapon weapon)
-    {
-        if(currentWeapon.weaponMesh)
-            currentWeapon.weaponMesh.SetActive(false);
-        currentWeapon = weapon;
-        currentWeapon.weaponMesh.SetActive(true);
     }
 }
