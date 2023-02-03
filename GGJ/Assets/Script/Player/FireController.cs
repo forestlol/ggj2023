@@ -9,10 +9,6 @@ public class FireController : MonoBehaviour
     [SerializeField]
     Transform spawnPoint;
 
-    [Header("Bullet Prefab")]
-    [SerializeField]
-    Rigidbody m_bullet;
-
     [Space]
 
     [Header("Current Weapon")]
@@ -59,10 +55,10 @@ public class FireController : MonoBehaviour
     IEnumerator Fire()
     {
         canFire = false;
-        bullet = Instantiate(m_bullet, spawnPoint.position, spawnPoint.rotation);
+        bullet = Instantiate(currentWeapon.bullet, spawnPoint.position, spawnPoint.rotation);
         bullet.AddForce(spawnPoint.forward * currentWeapon.bulletSpeed, ForceMode.Impulse);
         bullet.GetComponent<Bullet>().SpawnBullet(currentWeapon.bulletDamage);
-
+        bullet.GetComponent<Bullet>().SetHitEffect(currentWeapon.hitEffect);
         yield return new WaitForSeconds(currentWeapon.fireRate);
         canFire = true;
     }
@@ -78,10 +74,13 @@ public class Weapon
 {
     [Header("Bullet Statistics")]
     public string weaponName;
+
+    public Rigidbody bullet;
     [Range(0.05f, 1f)]
     public float fireRate;
     [Range(1, 10)]
     public int bulletDamage;
     [Range(1, 10)]
     public int bulletSpeed;
+    public GameObject hitEffect;
 }

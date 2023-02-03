@@ -6779,17 +6779,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 251745427}
-  m_bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
   currentWeapon:
     weaponName: 
+    bullet: {fileID: 0}
     fireRate: 0
     bulletDamage: 0
     bulletSpeed: 0
+    hitEffect: {fileID: 0}
   weapons:
   - weaponName: Pistol
+    bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
     fireRate: 0.25
     bulletDamage: 10
     bulletSpeed: 10
+    hitEffect: {fileID: 811296818779583687, guid: 3cc511d531e53224ab70d6402218427f, type: 3}
 --- !u!1001 &1326303734
 PrefabInstance:
   m_ObjectHideFlags: 0
