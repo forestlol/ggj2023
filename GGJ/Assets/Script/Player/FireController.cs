@@ -65,7 +65,9 @@ public class FireController : MonoBehaviour
 
     public void GetWeaponType(string weaponName)
     {
+        currentWeapon.weaponMesh.SetActive(false);
         currentWeapon = weaponDict[weaponName];
+        currentWeapon.weaponMesh.SetActive(true);
     }
 }
 
@@ -74,7 +76,7 @@ public class Weapon
 {
     [Header("Bullet Statistics")]
     public string weaponName;
-
+    public GameObject weaponMesh;
     public Rigidbody bullet;
     [Range(0.05f, 1f)]
     public float fireRate;
