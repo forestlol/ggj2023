@@ -26,6 +26,7 @@ public class FireController : MonoBehaviour
     private void Start()
     {
         currentWeapon = GameManager.instance.GetWeaponType("Pistol");
+        SetWeapon(currentWeapon);
     }
 
     // Update is called once per frame
@@ -56,6 +57,9 @@ public class FireController : MonoBehaviour
 
     public void SetWeapon(Weapon weapon)
     {
+        if(currentWeapon.weaponMesh)
+            currentWeapon.weaponMesh.SetActive(false);
         currentWeapon = weapon;
+        currentWeapon.weaponMesh.SetActive(true);
     }
 }

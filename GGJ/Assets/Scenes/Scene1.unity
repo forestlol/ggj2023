@@ -9479,11 +9479,11 @@ MonoBehaviour:
   - weaponName: Pistol
     weaponMesh: {fileID: 1031071211}
     bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
-    fireRate: 1
+    fireRate: 0.25
     bulletDamage: 5
     bulletSpeed: 30
     cost: 0
-    hitEffect: {fileID: 811296818779583687, guid: 3cc511d531e53224ab70d6402218427f, type: 3}
+    hitEffect: {fileID: 3257212882430620916, guid: 4741039b4e6baec45a05da2a12b447db, type: 3}
     controller: {fileID: 9100000, guid: ba2c554850e76d040bd78ea95e5572b7, type: 2}
   - weaponName: Rocket
     weaponMesh: {fileID: 1061564550}
@@ -9501,7 +9501,7 @@ MonoBehaviour:
     bulletDamage: 2
     bulletSpeed: 100
     cost: 0
-    hitEffect: {fileID: 811296818779583687, guid: 3cc511d531e53224ab70d6402218427f, type: 3}
+    hitEffect: {fileID: 5805763907514234566, guid: 6bad7e4181c1a8844982bc500e8c6997, type: 3}
     controller: {fileID: 9100000, guid: ddddb9821fe87d74cb6013a1ede37731, type: 2}
 --- !u!114 &2054640786
 MonoBehaviour:

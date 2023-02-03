@@ -51,11 +51,7 @@ public class GameManager : MonoBehaviour
 
     public void BuyWeapon(Weapon weapon)
     {
-        // not enough cash
-        if (cash - weapon.cost < 0)
-            return;
-        
-        cash -= weapon.cost;
+        cash = 0;
         GiveWeapon(weapon);
     }
 
