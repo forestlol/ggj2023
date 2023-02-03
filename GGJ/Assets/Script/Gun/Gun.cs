@@ -18,6 +18,7 @@ public class Gun : MonoBehaviour
     GameObject hitEffect;
     bool canFire = true;
 
+    //Initialize the Gun class
     public void AddStats (Weapon weapon, Transform spawnPoint)
     {
         this.spawnPoint = spawnPoint;
@@ -31,6 +32,7 @@ public class Gun : MonoBehaviour
     }
 
     // Update is called once per frame
+    // Set to auto fire
     void Update()
     {
         if (!canFire)
@@ -44,6 +46,9 @@ public class Gun : MonoBehaviour
         canFire = false;
         for (int x = 0; x < numberOfBullet; ++x)
         {
+            //To do: Make a sphere cast to get array of GameObject[]
+            // Get cloest enemy, fire towards that dir
+            // If there is no enemy, fire on the players forward (spawnPoint)
             yield return new WaitForSeconds(fireRate);
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);

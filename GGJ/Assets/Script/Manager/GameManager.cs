@@ -39,6 +39,7 @@ public class GameManager : MonoBehaviour
         AddWeaponToDictionary();
     }
 
+    // Pushes all custom created weapon to the dictionary
     void AddWeaponToDictionary()
     {
         string name = "";
@@ -50,6 +51,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Increase exp by an amount when enemy die
     public void IncreaseEXP(int amount)
     {
         experience += ((amount * currentLevel) + (10 + currentLevel^2));
@@ -58,16 +60,18 @@ public class GameManager : MonoBehaviour
             LevelUp();
     }
 
-    void GiveWeapon(Weapon weapon)
-    {
-        player.TakeWeapon(weapon);
-    }
 
+    //Return a weapon class from the dictionary
+    // Used to find specific weapon
+    // or use to set default weapon
     public Weapon GetWeaponType(string weaponName)
     {
         return weaponDict[weaponName];
     }
 
+    // Open the weapon selection screen once player level up
+    // Temporary pause the game to give user time to choose
+    // Reset experience and increase exp Cap
     void LevelUp()
     {
         expCap = expCap + (expCap * currentLevel) + (10 * currentLevel^2);
@@ -78,6 +82,8 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
     }
 
+    // Randomly pull 3 weapon from Weapon Dict and add them to the generatedWeapon list
+    // List is used for the button to faster find the weapon
     void GenerateWeaponForLevelUp()
     {
         generatedWeapon.Clear();
@@ -89,6 +95,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    // Added to the button
+    // Return the weapon from the list
+    // Give player the weapon
     public void SelectWeapon(int value)
     {
         levelUpPanel.SetActive(false);
@@ -96,6 +105,15 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
     }
 
+    //Self explanatory
+    void GiveWeapon(Weapon weapon)
+    {
+        player.TakeWeapon(weapon);
+    }
+
+    // Activate once the player receive the weapon
+    // Check whether weapon is existing in the player current dict
+    // if it exist, upgrade the weapon
     public Weapon UpgradeWeapon(Weapon weapon)
     {
         Weapon temp = weapon;
@@ -127,17 +145,19 @@ public class Weapon
 
     [Space]
 
+    [Header("The interval between each bullet")]
     public float fireRate;
+    [Space]
     public int numberOfBullet;
     public int bulletDamage;
     public int bulletSpeed;
 
     [Space]
+
+    [Header("How long before the next fire")]
     public float coolDown;
 
     [Space]
 
     public GameObject hitEffect;
-
-    public bool canFire;
 }
