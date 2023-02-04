@@ -40,6 +40,8 @@ public class FireController : MonoBehaviour
         //If it does not exist, add a new entry into the currentWeaponDict, dunDict
         if (!currentWeapon.Contains(weapon))
         {
+            AudioManager.instance.PlaySound("equip", transform);
+
             currentWeapon.Add(weapon);
             currentWeaponDict[weapon.weaponName] = weapon; //This is for upgrading purpose, faster query
 

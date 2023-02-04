@@ -21,10 +21,7 @@ public class AudioManager : MonoBehaviour
             Destroy(this.gameObject);
 
         instance = this;
-    }
 
-    private void Start()
-    {;
         AddAudioClipToDict();
     }
 

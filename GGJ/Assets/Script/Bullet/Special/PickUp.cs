@@ -15,7 +15,7 @@ public class PickUp : Gun
     {
         if(currentlevel == weaponLevel)
             return;
-
+        AudioManager.instance.PlaySound("pickup", transform);
         switch (fireRate)
         {
             case 0:
