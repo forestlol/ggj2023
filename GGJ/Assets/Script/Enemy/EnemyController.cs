@@ -25,10 +25,10 @@ public class EnemyController : MonoBehaviour
         OnHitEffect();
 
         enemyHealth -= _damage;
+        GameManager.instance.IncreaseEXP(10);
 
         if (enemyHealth <= 0) {
             Debug.Log(gameObject.name + " has Died");
-            GameManager.instance.IncreaseCase(100);
             Destroy(gameObject);
         }
     }

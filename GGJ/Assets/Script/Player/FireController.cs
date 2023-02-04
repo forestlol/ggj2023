@@ -1,11 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEditor.Animations;
 using UnityEngine;
 
 public class FireController : MonoBehaviour
 {
+    [Header("Gun object for instantiating a new weapon")]
+    [SerializeField]
+    Gun gunObj;
+
     [Header("Main Animator")]
     [SerializeField]
     Animator anim;
@@ -16,46 +21,45 @@ public class FireController : MonoBehaviour
 
     [Space]
 
-    [Header("Current Weapon")]
+    [Header("Current Weapon Equipped")]
     [SerializeField]
-    Weapon currentWeapon;
+    List<Weapon> currentWeapon;
+    [SerializeField]
+    List<Gun> guns;
 
-    Rigidbody bullet;
-    bool canFire = true;
+    Dictionary <string, Weapon> currentWeaponDict = new Dictionary<string, Weapon>();
+    Dictionary<Weapon, Gun> gunDict = new Dictionary<Weapon, Gun>();
+    Gun gun;
 
     private void Start()
     {
-        currentWeapon = GameManager.instance.GetWeaponType("Pistol");
+        //Can take in a string value to change the default starting weapon
+        TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
     }
 
-    // Update is called once per frame
-    void Update()
+    // Take the weapon from the Game Manager pool
+    public void TakeWeapon(Weapon weapon)
     {
-        if (Input.GetKeyDown(KeyCode.E))
-            GameManager.instance.BuyWeapon(GameManager.instance.GetWeaponType("Rocket"));
+        //Check the List<Weapon> to find whether or not it is a new weapon
+        //If it does not exist, add a new entry into the currentWeaponDict, dunDict
+        if (!currentWeapon.Contains(weapon))
+        {
+            currentWeapon.Add(weapon);
+            currentWeaponDict[weapon.weaponName] = weapon; //This is for upgrading purpose, faster query
 
-        if (!Input.GetMouseButton(0))
+            gun = Instantiate(gunObj, spawnPoint.transform); //Create a new gunObj and store at the firePoint
+            gun.AddStats(weapon, spawnPoint); // Parse in the stat from weapon
+            guns.Add(gun);
+            gunDict[weapon] = gun; // Reference <weapon,gun> for upgrade purpose
+
             return;
+        }
+        // This is where upgrade occurs
+        // Get query the weapon class that needs to be upgraded and GameManager UpgraWeapon will handle the upgrade
+        currentWeaponDict[weapon.weaponName] = GameManager.instance.UpgradeWeapon(weapon);
 
-        if (!canFire)
-            return;
+        //Find the gun oject with via the weapon and apply the new stats
+        gunDict[currentWeaponDict[weapon.weaponName]].AddStats(currentWeaponDict[weapon.weaponName], spawnPoint);
 
-        StartCoroutine(Fire());
-    }
-
-    IEnumerator Fire()
-    {
-        canFire = false;
-        bullet = Instantiate(currentWeapon.bullet, spawnPoint.position, spawnPoint.rotation);
-        bullet.AddForce(spawnPoint.forward * currentWeapon.bulletSpeed, ForceMode.Impulse);
-        bullet.GetComponent<Bullet>().SpawnBullet(currentWeapon.bulletDamage);
-        bullet.GetComponent<Bullet>().SetHitEffect(currentWeapon.hitEffect);
-        yield return new WaitForSeconds(currentWeapon.fireRate);
-        canFire = true;
-    }
-
-    public void SetWeapon(Weapon weapon)
-    {
-        currentWeapon = weapon;
     }
 }
