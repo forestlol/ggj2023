@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 449038307346369738}
   - component: {fileID: 6329317907615424008}
   - component: {fileID: 2372012563243106015}
-  - component: {fileID: 1709683463672580286}
+  - component: {fileID: 6008500453835059131}
+  - component: {fileID: -8486878217803712631}
   m_Layer: 0
   m_Name: Grenade
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449038307344437770}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,9 +114,9 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.11904
-  m_Center: {x: -0.000000040978193, y: 0.0000000037252903, z: 0.000000026077032}
---- !u!114 &1709683463672580286
+  m_Radius: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6008500453835059131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,6 +125,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 449038307344437770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6947eb95cf2911c4288aa4af57874bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: af93066e188849e43852f2f816e2150e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 0
+  bulletHitEffect: {fileID: 0}
+--- !u!135 &-8486878217803712631
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 449038307344437770}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.11904
+  m_Center: {x: -0.000000040978193, y: 0.0000000037252903, z: 0.000000026077032}

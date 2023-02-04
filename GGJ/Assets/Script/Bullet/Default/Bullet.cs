@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private int bulletDamage;
-    private GameObject bulletHitEffect;
+    [HideInInspector]
+    public int bulletDamage;
+    [HideInInspector]
+    public GameObject bulletHitEffect;
 
     public void SpawnBullet(int _damage)
     {
@@ -17,7 +19,8 @@ public class Bullet : MonoBehaviour
         bulletHitEffect = effect;
     }
 
-    void OnTriggerEnter(Collider other)
+
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Enemy")) 
         {

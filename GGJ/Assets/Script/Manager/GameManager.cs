@@ -163,9 +163,7 @@ public class Weapon
     public float coolDown;
 
     [Space]
-
     public GameObject hitEffect;
-
     [Space]
     public Gun gun;
 }
