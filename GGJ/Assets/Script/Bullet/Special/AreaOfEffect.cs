@@ -14,9 +14,10 @@ public class AreaOfEffect : Bullet
 
     IEnumerator Delay()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Explode();
     }
+
     void Explode()
     {
         if(m_EnemyControllers.Count == 0)
@@ -26,6 +27,7 @@ public class AreaOfEffect : Bullet
                 Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
                 Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
             }
+            Destroy(this.gameObject);
             return;
         }
         int damage = m_EnemyControllers.Count * bulletDamage;

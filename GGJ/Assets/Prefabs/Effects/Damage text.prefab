@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6998782788312068721}
   - component: {fileID: 6075016211903420045}
   - component: {fileID: 2649679116497087607}
+  - component: {fileID: 469872531638744322}
   m_Layer: 0
   m_Name: 2
   m_TagString: Untagged
@@ -86,7 +87,7 @@ ParticleSystemRenderer:
   m_SortingFudge: -49.9
   m_NormalDirection: 1
   m_ShadowBias: -0.5
-  m_RenderAlignment: 1
+  m_RenderAlignment: 0
   m_Pivot: {x: -0.38392857, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 1
@@ -4972,6 +4973,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &469872531638744322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1402345487470160145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5e93cadb3ee1e45bcba8be62dba3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1891926198193317403
 GameObject:
   m_ObjectHideFlags: 0
@@ -4983,6 +4996,7 @@ GameObject:
   - component: {fileID: 7193661480218379171}
   - component: {fileID: 2892513695933380154}
   - component: {fileID: 4780818483553961309}
+  - component: {fileID: 8034180973986931699}
   m_Layer: 0
   m_Name: 9
   m_TagString: Untagged
@@ -5058,7 +5072,7 @@ ParticleSystemRenderer:
   m_SortingFudge: -49.8
   m_NormalDirection: 1
   m_ShadowBias: -0.5
-  m_RenderAlignment: 1
+  m_RenderAlignment: 0
   m_Pivot: {x: 0.4830508, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 1
@@ -9944,6 +9958,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &8034180973986931699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891926198193317403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5e93cadb3ee1e45bcba8be62dba3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8079516195477823857
 GameObject:
   m_ObjectHideFlags: 0
@@ -9955,6 +9981,7 @@ GameObject:
   - component: {fileID: 3687633670006613821}
   - component: {fileID: 1160478991889557599}
   - component: {fileID: 7506493678605598007}
+  - component: {fileID: 7665117680993189270}
   m_Layer: 0
   m_Name: 1
   m_TagString: Untagged
@@ -10030,7 +10057,7 @@ ParticleSystemRenderer:
   m_SortingFudge: -50
   m_NormalDirection: 1
   m_ShadowBias: -0.5
-  m_RenderAlignment: 1
+  m_RenderAlignment: 0
   m_Pivot: {x: -1.8225806, y: 0, z: 0}
   m_Flip: {x: 0, y: 0, z: 0}
   m_UseCustomVertexStreams: 1
@@ -14916,6 +14943,18 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &7665117680993189270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8079516195477823857}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5e93cadb3ee1e45bcba8be62dba3b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8404586205930403782
 GameObject:
   m_ObjectHideFlags: 0
@@ -14942,7 +14981,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8404586205930403782}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
