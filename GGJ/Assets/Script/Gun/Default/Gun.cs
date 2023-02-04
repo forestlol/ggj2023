@@ -25,6 +25,8 @@ public class Gun : MonoBehaviour
     public bool canFire = true;
     [HideInInspector]
     public int weaponLevel;
+    [HideInInspector]
+    public string soundID;
 
     [Header("Damage Effect")]
     public CFXR_ParticleText effect;
@@ -41,6 +43,7 @@ public class Gun : MonoBehaviour
         this.m_bullet = weapon.bullet;
         this.hitEffect = weapon.hitEffect;
         this.weaponLevel = weapon.weaponLevel;
+        this.soundID = weapon.soundID;
     }
 
     // Update is called once per frame
@@ -62,6 +65,7 @@ public class Gun : MonoBehaviour
             // Get cloest enemy, fire towards that dir
             // If there is no enemy, fire on the players forward (spawnPoint)
             yield return new WaitForSeconds(fireRate);
+            AudioManager.instance.PlaySound(soundID, transform);
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);
             bullet.AddForce(spawnPoint.forward * bulletSpeed, ForceMode.Impulse);

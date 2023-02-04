@@ -37,9 +37,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySound(string soundName)
+    public void PlaySound(string soundName, Transform soundPos)
     {
-        audioDict[soundName].Play();
+        AudioSource sound = Instantiate(audioDict[soundName], soundPos);
+        sound.Play();
+        Destroy(sound, sound.clip.length);
     }
 }
 

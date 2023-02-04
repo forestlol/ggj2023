@@ -191,4 +191,6 @@ public class Weapon
     [Space]
 
     public Gun gun;
+    [Space]
+    public string soundID;
 }

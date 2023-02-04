@@ -20,6 +20,8 @@ public class AreaOfEffect : Bullet
 
     void Explode()
     {
+        AudioManager.instance.PlaySound("explosion", transform);
+
         if(m_EnemyControllers.Count == 0)
         {
             if (bulletHitEffect != null)
