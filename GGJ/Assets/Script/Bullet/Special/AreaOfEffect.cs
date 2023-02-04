@@ -34,7 +34,7 @@ public class AreaOfEffect : Bullet
         for (int i = 0; i < m_EnemyControllers.Count; ++i)
         {
             
-            m_EnemyControllers[i].GetComponent<EnemyController>().TakeDamage(bulletDamage);
+            m_EnemyControllers[i].GetComponent<EnemyController>().DoDamage(bulletDamage);
         }
         if (bulletHitEffect != null)
         {

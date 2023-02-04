@@ -13,7 +13,7 @@ public class Piercing : Bullet
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.GetComponent<EnemyController>().TakeDamage(bulletDamage);
+            other.GetComponent<EnemyController>().DoDamage(bulletDamage);
 
             if (bulletHitEffect != null)
             {
