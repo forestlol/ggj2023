@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1010106222350519036
+--- !u!1 &6743199990833304134
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,26 +8,26 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1010106222350358236}
-  - component: {fileID: 1010106222351652604}
-  - component: {fileID: 1010106222352782396}
-  - component: {fileID: -1825426301089960251}
-  - component: {fileID: 3584979608511254340}
-  - component: {fileID: -1006472614203779534}
+  - component: {fileID: 6743199990833663590}
+  - component: {fileID: 6743199990836530758}
+  - component: {fileID: 6743199990835563654}
+  - component: {fileID: 6368832393732900023}
+  - component: {fileID: 6368832393732900020}
+  - component: {fileID: 2276372704011963954}
   m_Layer: 0
-  m_Name: BazookaMissileDefault
+  m_Name: ArrowDefault
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1010106222350358236
+--- !u!4 &6743199990833663590
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
+  m_GameObject: {fileID: 6743199990833304134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -36,21 +36,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1010106222351652604
+--- !u!33 &6743199990836530758
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
-  m_Mesh: {fileID: 4300000, guid: f1d338e1382bddb498292a56a788d711, type: 3}
---- !u!23 &1010106222352782396
+  m_GameObject: {fileID: 6743199990833304134}
+  m_Mesh: {fileID: 4300002, guid: 7dd8d7195f12dca4d8e40772fc7d5263, type: 3}
+--- !u!23 &6743199990835563654
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
+  m_GameObject: {fileID: 6743199990833304134}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -86,44 +86,47 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!54 &-1825426301089960251
+--- !u!54 &6368832393732900023
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
+  m_GameObject: {fileID: 6743199990833304134}
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!65 &3584979608511254340
+--- !u!65 &6368832393732900020
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
+  m_GameObject: {fileID: 6743199990833304134}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.16725685, y: 0.16725677, z: 0.6963769}
-  m_Center: {x: 0.000000037252903, y: -0.0000007599592, z: 0.22905129}
---- !u!114 &-1006472614203779534
+  m_Size: {x: 0.05937393, y: 0.07230667, z: 0.7637873}
+  m_Center: {x: 0, y: 0, z: 0.32526115}
+--- !u!114 &2276372704011963954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1010106222350519036}
+  m_GameObject: {fileID: 6743199990833304134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6947eb95cf2911c4288aa4af57874bfd, type: 3}
+  m_Script: {fileID: 11500000, guid: 0b80ca12fab89854fb322c57c6b99b2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 0
+  bulletHitEffect: {fileID: 0}
+  damageText: {fileID: 0}

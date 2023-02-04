@@ -1,8 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField]
     GameObject levelUpPanel;
+    [SerializeField]
+    List<Button> gameButton;
 
     [Space(10)]
 
@@ -54,7 +57,8 @@ public class GameManager : MonoBehaviour
     // Increase exp by an amount when enemy die
     public void IncreaseEXP(int amount)
     {
-        experience += ((amount * currentLevel) + (10 + currentLevel^2));
+        amount = amount + currentLevel;
+        experience += amount;
 
         if (experience > expCap)
             LevelUp();
@@ -74,7 +78,7 @@ public class GameManager : MonoBehaviour
     // Reset experience and increase exp Cap
     void LevelUp()
     {
-        expCap = expCap + (expCap * currentLevel) + (10 * currentLevel^2);
+        expCap = Mathf.CeilToInt(expCap * 1.5f);
         GenerateWeaponForLevelUp();
         ++currentLevel;
         experience = 0;
@@ -91,6 +95,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < 3; ++i)
         {
             weapon = weaponDict[weaponNameList[UnityEngine.Random.Range(0, weaponNameList.Count)]];
+            gameButton[i].GetComponentInChildren<TextMeshProUGUI>().text = weapon.weaponName;
             generatedWeapon.Add(weapon);
         }
     }
@@ -158,6 +163,7 @@ public class Weapon
     public float coolDown;
 
     [Space]
-
     public GameObject hitEffect;
+    [Space]
+    public Gun gun;
 }

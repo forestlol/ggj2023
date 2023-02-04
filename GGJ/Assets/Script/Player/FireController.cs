@@ -7,10 +7,6 @@ using UnityEngine;
 
 public class FireController : MonoBehaviour
 {
-    [Header("Gun object for instantiating a new weapon")]
-    [SerializeField]
-    Gun gunObj;
-
     [Header("Main Animator")]
     [SerializeField]
     Animator anim;
@@ -47,7 +43,7 @@ public class FireController : MonoBehaviour
             currentWeapon.Add(weapon);
             currentWeaponDict[weapon.weaponName] = weapon; //This is for upgrading purpose, faster query
 
-            gun = Instantiate(gunObj, spawnPoint.transform); //Create a new gunObj and store at the firePoint
+            gun = Instantiate(weapon.gun, spawnPoint.transform); //Create a new gunObj and store at the firePoint
             gun.AddStats(weapon, spawnPoint); // Parse in the stat from weapon
             guns.Add(gun);
             gunDict[weapon] = gun; // Reference <weapon,gun> for upgrade purpose

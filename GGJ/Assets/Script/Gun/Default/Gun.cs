@@ -1,22 +1,31 @@
+using CartoonFX;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    int bulletDamage;
-    int numberOfBullet;
-    int bulletSpeed;
+    [HideInInspector]
+    public int bulletDamage;
+    [HideInInspector]
+    public int numberOfBullet;
+    [HideInInspector]
+    public int bulletSpeed;
+    [HideInInspector]
+    public float fireRate;
+    [HideInInspector]
+    public float coolDown;
+    [HideInInspector]
+    public Transform spawnPoint;
+    [HideInInspector]
+    public Rigidbody m_bullet;
+    [HideInInspector]
+    public GameObject hitEffect;
+    [HideInInspector]
+    public bool canFire = true;
 
-    float fireRate;
-    float coolDown;
-
-    Transform spawnPoint;
-
-    Rigidbody m_bullet;
-
-    GameObject hitEffect;
-    bool canFire = true;
+    [Header("Damage Effect")]
+    public CFXR_ParticleText effect;
 
     //Initialize the Gun class
     public void AddStats (Weapon weapon, Transform spawnPoint)
@@ -41,7 +50,7 @@ public class Gun : MonoBehaviour
         StartCoroutine(Fire());
     }
 
-    IEnumerator Fire()
+    public virtual IEnumerator Fire()
     {
         canFire = false;
         for (int x = 0; x < numberOfBullet; ++x)
@@ -53,6 +62,7 @@ public class Gun : MonoBehaviour
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);
             bullet.AddForce(spawnPoint.forward * bulletSpeed, ForceMode.Impulse);
+            bullet.GetComponent<Bullet>().SetDamagetext(effect);
             bullet.GetComponent<Bullet>().SpawnBullet(bulletDamage);
             bullet.GetComponent<Bullet>().SetHitEffect(hitEffect);
         }
