@@ -6,6 +6,16 @@ public class AreaOfEffect : Bullet
 {
     List<GameObject> m_EnemyControllers = new List<GameObject>();
 
+    private void Start()
+    {
+        StartCoroutine(Delay());
+    }
+
+    IEnumerator Delay()
+    {
+        yield return new WaitForSeconds(3);
+        Explode();
+    }
     void Explode()
     {
         if(m_EnemyControllers.Count == 0)
@@ -50,6 +60,9 @@ public class AreaOfEffect : Bullet
 
     private void OnCollisionEnter(Collision collision)
     {
-        Explode();
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Explode();
+        }
     }
 }
