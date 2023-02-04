@@ -48,6 +48,8 @@ public class FireController : MonoBehaviour
             guns.Add(gun);
             gunDict[weapon] = gun; // Reference <weapon,gun> for upgrade purpose
 
+            if(weapon.weaponName.Contains("upgrade"))
+                GameManager.instance.UpgradeWeapon(weapon);
             return;
         }
         // This is where upgrade occurs

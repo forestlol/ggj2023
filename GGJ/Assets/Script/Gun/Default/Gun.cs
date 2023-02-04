@@ -24,7 +24,7 @@ public class Gun : MonoBehaviour
     [HideInInspector]
     public bool canFire = true;
     [HideInInspector]
-    public string audioID;
+    public int weaponLevel;
 
     [Header("Damage Effect")]
     public CFXR_ParticleText effect;
@@ -40,6 +40,7 @@ public class Gun : MonoBehaviour
         this.coolDown = weapon.coolDown;
         this.m_bullet = weapon.bullet;
         this.hitEffect = weapon.hitEffect;
+        this.weaponLevel = weapon.weaponLevel;
     }
 
     // Update is called once per frame

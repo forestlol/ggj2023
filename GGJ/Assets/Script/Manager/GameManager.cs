@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using CartoonFX;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
     FireController player;
+    [SerializeField]
+    PlayerMovement playerStats;
 
     [Space]
 
@@ -29,6 +32,11 @@ public class GameManager : MonoBehaviour
     int experience;
     [SerializeField]
     int expCap = 100;
+
+    [Space]
+    [SerializeField]
+    CFXR_Effect levelUpEffect;
+
 
     Weapon weapon;
     public static GameManager instance;
@@ -68,9 +76,8 @@ public class GameManager : MonoBehaviour
     }
 
 
-    //Return a weapon class from the dictionary
+    // Return a weapon class from the dictionary
     // Used to find specific weapon
-    // or use to set default weapon
     public Weapon GetWeaponType(string weaponName)
     {
         return weaponDict[weaponName];
@@ -111,6 +118,7 @@ public class GameManager : MonoBehaviour
         levelUpPanel.SetActive(false);
         GiveWeapon(generatedWeapon[value]);
         Time.timeScale = 1;
+        CFXR_Effect temp = Instantiate(levelUpEffect, player.transform.position + new Vector3(0,.5f,0), Quaternion.identity);
     }
 
     //Self explanatory
@@ -125,8 +133,11 @@ public class GameManager : MonoBehaviour
     public Weapon UpgradeWeapon(Weapon weapon)
     {
         Weapon temp = weapon;
-        ++temp.weaponLevel;
+        ++weapon.weaponLevel;
         temp.bulletDamage += temp.bulletDamage;
+
+        if (temp.weaponName.Contains("upgrade"))
+            return temp;
 
         if (temp.weaponLevel % 2 == 0)
             temp.fireRate *= 0.9f;
@@ -136,6 +147,15 @@ public class GameManager : MonoBehaviour
             temp.coolDown *= 0.9f;
         }
         return temp;
+    }
+
+    public void Upgradehealth(int value)
+    {
+        playerStats.IncreaseHealth(value);
+    }
+    public void UpgradeSpeed(int value)
+    {
+        playerStats.IncreaseSpeed(value);
     }
 }
 

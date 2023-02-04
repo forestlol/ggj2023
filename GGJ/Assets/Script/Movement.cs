@@ -5,9 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
+    public int maxHealth;
     [Header("Movement variables")]
-    [SerializeField]
-    int moveSpeed;
+    public int moveSpeed;
     [SerializeField]
     int turnSpeed;
 
@@ -15,6 +15,8 @@ public class Movement : MonoBehaviour
     public Rigidbody rb;
 
     private Transform m_camera_Transform;
+    [HideInInspector]
+    public int currentHealth;
 
     // Start is called before the first frame update
     public void Start()
@@ -23,6 +25,7 @@ public class Movement : MonoBehaviour
             rb = GetComponent<Rigidbody>();
 
         m_camera_Transform = Camera.main.transform;
+        currentHealth = maxHealth;
     }
 
     public virtual void Move(float moveX, float moveZ)

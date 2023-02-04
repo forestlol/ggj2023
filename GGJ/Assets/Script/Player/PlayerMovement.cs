@@ -40,6 +40,16 @@ public class PlayerMovement : Movement
         FocusOnMousePointer();
     }
 
+    public void IncreaseHealth(int value)
+    {
+        maxHealth += value;
+        currentHealth += value;
+    }
+    public void IncreaseSpeed(int value)
+    {
+        moveSpeed += value;
+    }
+
     private void FixedUpdate()
     {
         Move(moveX, moveZ);
