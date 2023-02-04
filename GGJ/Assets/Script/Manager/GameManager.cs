@@ -23,17 +23,20 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     List<Weapon> weapons;
 
+    [Space]
+
+    [SerializeField]
+    int experience;
+    [SerializeField]
+    int expCap = 100;
+
+    Weapon weapon;
     public static GameManager instance;
 
     Dictionary<string, Weapon> weaponDict = new Dictionary<string, Weapon>();
     List<string> weaponNameList = new List<string>();
     List<Weapon> generatedWeapon = new List<Weapon>();
     int currentLevel;
-    [SerializeField]
-    int experience;
-    [SerializeField]
-    int expCap = 100;
-    Weapon weapon;
 
     private void Awake()
     {
@@ -163,7 +166,9 @@ public class Weapon
     public float coolDown;
 
     [Space]
+
     public GameObject hitEffect;
     [Space]
+
     public Gun gun;
 }

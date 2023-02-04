@@ -30,10 +30,10 @@ public class AreaOfEffect : Bullet
             Destroy(this.gameObject);
             return;
         }
+
         int damage = m_EnemyControllers.Count * bulletDamage;
         for (int i = 0; i < m_EnemyControllers.Count; ++i)
         {
-            
             m_EnemyControllers[i].GetComponent<EnemyController>().TakeDamage(bulletDamage);
         }
         if (bulletHitEffect != null)
@@ -45,7 +45,7 @@ public class AreaOfEffect : Bullet
             temp.UpdateText(damage.ToString());
             Destroy(temp.gameObject, 0.5f);
         }
-        Destroy(gameObject);
+        Destroy(this.gameObject);
     }
 
     public override void OnTriggerEnter(Collider other)

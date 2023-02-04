@@ -114,7 +114,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 2
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6008500453835059131
 MonoBehaviour:
@@ -130,6 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletDamage: 0
   bulletHitEffect: {fileID: 0}
+  damageText: {fileID: 0}
 --- !u!135 &-8486878217803712631
 SphereCollider:
   m_ObjectHideFlags: 0

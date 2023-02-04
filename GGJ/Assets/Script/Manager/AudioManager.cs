@@ -3,15 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
 public class AudioManager : MonoBehaviour
 {
     [SerializeField]
     List<AudioHandler> audioList;
 
-    Dictionary<string, AudioClip> audioDict = new Dictionary<string, AudioClip>();
-
-    AudioSource source;
+    Dictionary<string, AudioSource> audioDict = new Dictionary<string, AudioSource>();
 
     // Start is called before the first frame update
 
@@ -27,9 +24,7 @@ public class AudioManager : MonoBehaviour
     }
 
     private void Start()
-    {
-        if(!source)
-            source = GetComponent<AudioSource>();
+    {;
         AddAudioClipToDict();
     }
 
@@ -38,16 +33,13 @@ public class AudioManager : MonoBehaviour
         for (int i = 0; i < audioList.Count; ++i)
         {
             string audioName = audioList[i].audioName;
-            AudioClip clip = audioList[i].clip;
-
-            audioDict[audioName] = clip;
+            audioDict[audioName] = audioList[i].audio;
         }
     }
 
     public void PlaySound(string soundName)
     {
-        source.clip = audioDict[soundName];
-        source.Play();
+        audioDict[soundName].Play();
     }
 }
 
@@ -55,5 +47,5 @@ public class AudioManager : MonoBehaviour
 public class AudioHandler
 {
     public string audioName;
-    public AudioClip clip;
+    public AudioSource audio;
 }

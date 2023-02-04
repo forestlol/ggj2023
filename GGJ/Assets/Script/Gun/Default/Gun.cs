@@ -23,6 +23,8 @@ public class Gun : MonoBehaviour
     public GameObject hitEffect;
     [HideInInspector]
     public bool canFire = true;
+    [HideInInspector]
+    public string audioID;
 
     [Header("Damage Effect")]
     public CFXR_ParticleText effect;
