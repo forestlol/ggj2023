@@ -24,6 +24,7 @@ public class Grenade : Gun
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);
             bullet.AddForce((spawnPoint.forward * (bulletSpeed/2)) + (spawnPoint.up * (bulletSpeed/2)), ForceMode.Impulse);
+            bullet.GetComponent<Bullet>().SetDamagetext(effect);
             bullet.GetComponent<Bullet>().SpawnBullet(bulletDamage);
             bullet.GetComponent<Bullet>().SetHitEffect(hitEffect);
         }

@@ -53,3 +53,4 @@ MonoBehaviour:
   m_bullet: {fileID: 0}
   hitEffect: {fileID: 0}
   canFire: 1
+  effect: {fileID: 4253114434029593236, guid: bd15e485b9104c240b06e1ab442fbcfe, type: 3}

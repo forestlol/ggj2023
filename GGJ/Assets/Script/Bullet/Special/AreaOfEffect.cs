@@ -1,3 +1,4 @@
+using CartoonFX;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,20 +25,23 @@ public class AreaOfEffect : Bullet
             {
                 Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
                 Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
-                //Destroy(bulletObject, 0.5f);
             }
             return;
         }
-
+        int damage = m_EnemyControllers.Count * bulletDamage;
         for (int i = 0; i < m_EnemyControllers.Count; ++i)
         {
+            
             m_EnemyControllers[i].GetComponent<EnemyController>().TakeDamage(bulletDamage);
         }
         if (bulletHitEffect != null)
         {
             Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
+            Vector3 damageSpawnPosition = transform.position + new Vector3(0, 1f, 0);
             Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
-            //Destroy(bulletObject, 0.5f);
+            CFXR_ParticleText temp = Instantiate(damageText, damageSpawnPosition, Quaternion.identity);
+            temp.UpdateText(damage.ToString());
+            Destroy(temp.gameObject, 0.5f);
         }
         Destroy(gameObject);
     }

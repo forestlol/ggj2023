@@ -44,3 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6953057560e6a40875e9f7448ea671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletDamage: 0
+  numberOfBullet: 0
+  bulletSpeed: 0
+  fireRate: 0
+  coolDown: 0
+  spawnPoint: {fileID: 0}
+  m_bullet: {fileID: 0}
+  hitEffect: {fileID: 0}
+  canFire: 1
+  effect: {fileID: 4253114434029593236, guid: bd15e485b9104c240b06e1ab442fbcfe, type: 3}
