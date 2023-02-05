@@ -13,6 +13,9 @@ public class Room_Manager : MonoBehaviour
     private List<Room> m_room_prefab;
 
     [SerializeField]
+    private Room m_EndRoom_prefab;
+
+    [SerializeField]
     private Room current_room;
 
     [SerializeField]
@@ -20,8 +23,7 @@ public class Room_Manager : MonoBehaviour
 
     [SerializeField]
     private int map_size = 5, map_generated_size;
-    private int room_left = 0;
-
+    private int room_left = 0, endRoomIndex = 0;
 
     public Room GetCurrentRoom
     {
@@ -43,6 +45,7 @@ public class Room_Manager : MonoBehaviour
     private void Start()
     {
         room_left = map_size;
+        endRoomIndex = Random.Range(1, map_size - 1);
 
         map.Add(Vector2Int.zero, current_room);
         
@@ -134,8 +137,17 @@ public class Room_Manager : MonoBehaviour
         {
             return null;
         }
+        Room newRoom;
 
-        Room newRoom = GameObject.Instantiate(m_room_prefab[Random.Range(0, m_room_prefab.Count)], map_transform);
+        if (room_left == endRoomIndex)
+        {
+            newRoom = GameObject.Instantiate(m_EndRoom_prefab, map_transform);
+        }
+        else
+        {
+            newRoom = GameObject.Instantiate(m_room_prefab[Random.Range(0, m_room_prefab.Count)], map_transform);
+        }
+
         newRoom.room_coordinate = coordinate;
         newRoom.gameObject.name = "Room " + coordinate;
         newRoom.transform.position = new Vector3(coordinate.x * 30, 0, coordinate.y * 30);
