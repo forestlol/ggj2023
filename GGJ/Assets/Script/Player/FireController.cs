@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEditor.Animations;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class FireController : MonoBehaviour
 {
@@ -99,9 +100,15 @@ public class FireController : MonoBehaviour
 
     public void ToggleFire(bool istrue)
     {
-        foreach(Gun gun in guns)
+        StartCoroutine(ReturnFire(istrue));
+    }
+
+    IEnumerator ReturnFire(bool isTrue)
+    {
+        foreach (Gun gun in guns)
         {
-            gun.canFire = istrue;
+            yield return new WaitForSeconds(gun.coolDown);
+            gun.canFire = isTrue;
         }
     }
 }

@@ -44,12 +44,14 @@ public class PlayerMovement : Movement
         moveX = Input.GetAxis("Horizontal");
         moveZ = Input.GetAxis("Vertical");
 
+
         if(FocusOnClosestEnemy(focusRange)){
             fireControl.ToggleFire(true);
             return;
         }
 
         fireControl.ToggleFire(false);
+
         FocusOnMousePointer();
     }
 

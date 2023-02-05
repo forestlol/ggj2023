@@ -15,6 +15,7 @@ public class Grenade : Gun
     public override IEnumerator Fire()
     {
         canFire = false;
+
         for (int x = 0; x < numberOfBullet; ++x)
         {
             //To do: Make a sphere cast to get array of GameObject[]

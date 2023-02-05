@@ -59,12 +59,15 @@ public class Gun : MonoBehaviour
     public virtual IEnumerator Fire()
     {
         canFire = false;
+        yield return new WaitForSeconds(coolDown);
+
         for (int x = 0; x < numberOfBullet; ++x)
         {
             //To do: Make a sphere cast to get array of GameObject[]
             // Get cloest enemy, fire towards that dir
             // If there is no enemy, fire on the players forward (spawnPoint)
             yield return new WaitForSeconds(fireRate);
+
             AudioManager.instance.PlaySound(soundID, transform);
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);
@@ -74,6 +77,7 @@ public class Gun : MonoBehaviour
             bullet.GetComponent<Bullet>().SetHitEffect(hitEffect);
         }
         yield return new WaitForSeconds(coolDown);
+
         canFire = true;
     }
 }
