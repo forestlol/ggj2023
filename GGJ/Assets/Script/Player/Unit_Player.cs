@@ -15,8 +15,10 @@ public class Unit_Player : Unit
     {
         base.DoDeath();
 
+
         UIManager.instance.ShowGameOverPanel();
 
+        GameManager.instance.Game_CompletRoom();
         Destroy(gameObject);
     }
 

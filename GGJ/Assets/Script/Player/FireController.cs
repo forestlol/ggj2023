@@ -44,17 +44,13 @@ public class FireController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SceneChanger.instance.LoadScene("Zj_test");
     }
 
     void EquipSavedWeapons()
     {
         for (int i = 0; i < currentWeapon.Count; ++i)
         {
-            AudioManager.instance.PlaySound("equip", transform);
-
-            currentWeapon.Add(currentWeapon[i]);
+            //AudioManager.instance.PlaySound("equip", transform);
             currentWeaponDict[currentWeapon[i].weaponName] = currentWeapon[i]; //This is for upgrading purpose, faster query
 
             gun = Instantiate(currentWeapon[i].gun, spawnPoint.transform); //Create a new gunObj and store at the firePoint
