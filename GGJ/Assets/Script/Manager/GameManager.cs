@@ -207,6 +207,18 @@ public class GameManager : MonoBehaviour
         enemyHealthBonus = 0;
         currentWeapon.Clear();
     }
+    public int GetExperience()
+    {
+        return experience;
+    }
+    public int GetCurrentLevel()
+    {
+        return currentLevel;
+    }
+    public int GetFloor()
+    {
+        return current_game_Level;
+    }
 }
 
 [Serializable]
