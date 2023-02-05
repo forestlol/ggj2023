@@ -1197,7 +1197,7 @@ MonoBehaviour:
   animator: {fileID: 4374536072119449867}
   m_room: {fileID: 0}
   damage: 1
-  speed: 1
+  speed: 2.5
   radius: 10
   meleeClass: 1
   effect: {fileID: 4253114434029593236, guid: bd15e485b9104c240b06e1ab442fbcfe, type: 3}
