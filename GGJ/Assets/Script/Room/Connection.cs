@@ -35,15 +35,19 @@ public class Connection : MonoBehaviour
                     offset += Vector3.right * offset_strength;
                     break;
                 case CONNECTION_DIRECTION.UP:
-                    offset += Vector3.up * offset_strength;
+                    offset += Vector3.forward * offset_strength;
                     break;
                 case CONNECTION_DIRECTION.DOWN:
-                    offset += Vector3.down * offset_strength;
+                    offset += -Vector3.forward * offset_strength;
                     break;
             }
 
-            other.transform.position = otherSide_Connection.transform.position + offset;
+            Vector3 position = otherSide_Connection.transform.position + offset;
+            position.y = other.transform.position.y;
+            other.transform.position =  position;
+            
             Room_Manager.instance.GetCurrentRoom = otherSide_Connection.m_room;
+            otherSide_Connection.m_room.Connection_OnEnter_Player();
         }
     }
 }
