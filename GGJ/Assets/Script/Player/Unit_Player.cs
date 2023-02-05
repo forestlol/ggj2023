@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+
 
 public class Unit_Player : Unit
 {
-
     public override void DoDamage(int damage)
     {
         base.DoDamage(damage);
@@ -15,5 +16,11 @@ public class Unit_Player : Unit
         base.DoDeath();
 
         Destroy(gameObject);
+    }
+
+    public void IncreaseHealth(int value)
+    {
+        maxHealth += value;
+        health += value;
     }
 }

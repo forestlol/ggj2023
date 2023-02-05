@@ -257,11 +257,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 178949440}
   m_CullTransparentMesh: 1
---- !u!1 &211853875 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5461520704663091379, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &225411811
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,11 +562,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6647494862881504072, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
   m_PrefabInstance: {fileID: 671556514}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &463578500 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5788804948252239407, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &473975789
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,11 +625,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &552223058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1718240240176812408, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &671556514
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -985,8 +970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79a9d3a9f89561b42990568d867e0ef7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1240602649}
-  playerStats: {fileID: 0}
   levelUpPanel: {fileID: 713518038}
   gameButton:
   - {fileID: 1903950186}
@@ -995,7 +978,6 @@ MonoBehaviour:
   weapons:
   - weaponName: Pistol
     weaponLevel: 0
-    weaponMesh: {fileID: 552223058}
     bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
     fireRate: 0.25
     numberOfBullet: 1
@@ -1007,7 +989,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: Rocket
     weaponLevel: 0
-    weaponMesh: {fileID: 1384504760}
     bullet: {fileID: -1825426301089960251, guid: b20ded6f41cfbc74fa89b3c01640cd22, type: 3}
     fireRate: 1
     numberOfBullet: 1
@@ -1019,7 +1000,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: Mini Gun
     weaponLevel: 0
-    weaponMesh: {fileID: 1539132870}
     bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
     fireRate: 0.05
     numberOfBullet: 10
@@ -1031,7 +1011,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: Grenade
     weaponLevel: 0
-    weaponMesh: {fileID: 966467863}
     bullet: {fileID: 6329317907615424008, guid: 2ccefddfd63e28b4d85f472360e5cfd4, type: 3}
     fireRate: 0.05
     numberOfBullet: 1
@@ -1043,7 +1022,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: Assault Rifle
     weaponLevel: 0
-    weaponMesh: {fileID: 1988133809}
     bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
     fireRate: 0.05
     numberOfBullet: 3
@@ -1055,7 +1033,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: Bow
     weaponLevel: 0
-    weaponMesh: {fileID: 211853875}
     bullet: {fileID: 6368832393732900023, guid: ac569c7932d0a814b8b6c9f245701867, type: 3}
     fireRate: 1
     numberOfBullet: 1
@@ -1067,7 +1044,6 @@ MonoBehaviour:
     soundID: pistol
   - weaponName: SMG
     weaponLevel: 0
-    weaponMesh: {fileID: 463578500}
     bullet: {fileID: 6863573930512336957, guid: 2069a7de85057ed4d8dee0d6df870191, type: 3}
     fireRate: 0.1
     numberOfBullet: 1
@@ -1080,6 +1056,8 @@ MonoBehaviour:
   experience: 0
   expCap: 100
   levelUpEffect: {fileID: 0}
+  player: {fileID: 1240602649}
+  playerStats: {fileID: 0}
 --- !u!114 &947802003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1107,11 +1085,6 @@ Transform:
   m_Father: {fileID: 1473020230}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &966467863 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2184552305771310336, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &988506973 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 988506973, guid: 5ff5848766178e54d8b7af39baddaa62, type: 3}
@@ -2131,12 +2104,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9a515bfffc32c4eaa247eb73f6066f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxHealth: 0
   health: 10
---- !u!1 &1384504760 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3660236659858670237, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
+  health_txt: {fileID: 0}
+  hpSlider: {fileID: 0}
 --- !u!1 &1473020229
 GameObject:
   m_ObjectHideFlags: 0
@@ -2354,11 +2325,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1536070366}
   m_CullTransparentMesh: 1
---- !u!1 &1539132870 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8205786365918248356, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1706520361
 GameObject:
   m_ObjectHideFlags: 0
@@ -3185,11 +3151,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1972411828}
   m_CullTransparentMesh: 1
---- !u!1 &1988133809 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6150683506423660066, guid: 9c3b220a089f7c747bdc1a5c678cbbf5, type: 3}
-  m_PrefabInstance: {fileID: 671556514}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2010104507
 GameObject:
   m_ObjectHideFlags: 0

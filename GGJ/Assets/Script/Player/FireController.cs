@@ -33,7 +33,7 @@ public class FireController : MonoBehaviour
         //Can take in a string value to change the default starting weapon
         int count = GameManager.instance.GetUserWeaponsCount();
         if(count == 0)
-            TakeWeapon(GameManager.instance.GetWeaponType("Rocket"));
+            TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
         else
         {
             currentWeapon = GameManager.instance.GetUserWSeapons();
