@@ -44,6 +44,8 @@ public class GameManager : MonoBehaviour
 
     public int room_size = 3, current_game_Level = 1, enemyHealthBonus = 0;
 
+    public int lastFloor, lastEXP, lastLevel;
+
     private void Awake()
     {
         if (instance)
@@ -200,6 +202,19 @@ public class GameManager : MonoBehaviour
         current_game_Level++;
         room_size++;
         enemyHealthBonus += 10;
+
+        lastLevel = currentLevel - 1;
+        lastFloor = current_game_Level;
+        lastEXP = experience;
+
+        if (current_game_Level > 1)
+        {
+            SceneChanger.instance.LoadScene("Credits");
+        }
+        else
+        {
+            SceneChanger.instance.LoadScene("Scene_Prototype");
+        }
     }
 
     public void Game_ResetGameStats()

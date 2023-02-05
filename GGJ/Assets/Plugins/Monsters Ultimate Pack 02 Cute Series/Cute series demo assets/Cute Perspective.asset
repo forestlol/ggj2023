@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4709322540189743135
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6050e2d5de785ce4d931e4dbdbf2d755, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  spectralLut:
+    overrideState: 0
+    value: {fileID: 0}
+    defaultState: 1
+  intensity:
+    overrideState: 1
+    value: 0.226
+  fastMode:
+    overrideState: 1
+    value: 0
 --- !u!114 &-3494370265614885937
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -63,6 +89,30 @@ MonoBehaviour:
   - {fileID: 2147777141186722171}
   - {fileID: 3404495891915277697}
   - {fileID: -3494370265614885937}
+  - {fileID: -4709322540189743135}
+  - {fileID: 21629491250655712}
+--- !u!114 &21629491250655712
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b94fcd11afffcb142908bfcb1e261fba, type: 3}
+  m_Name: MotionBlur
+  m_EditorClassIdentifier: 
+  active: 1
+  enabled:
+    overrideState: 1
+    value: 1
+  shutterAngle:
+    overrideState: 1
+    value: 270
+  sampleCount:
+    overrideState: 1
+    value: 10
 --- !u!114 &114158081523558322
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -81,10 +131,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 11.08
+    value: 6.28
   threshold:
     overrideState: 1
-    value: 0.91
+    value: 0
   softKnee:
     overrideState: 0
     value: 0.5
@@ -93,7 +143,7 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 6.39
+    value: 6.78
   anamorphicRatio:
     overrideState: 0
     value: 0
@@ -1438,14 +1488,14 @@ MonoBehaviour:
     overrideState: 1
     value: 1
   focusDistance:
-    overrideState: 0
-    value: 0.1
+    overrideState: 1
+    value: 0.93
   aperture:
     overrideState: 1
-    value: 32
+    value: 9.86
   focalLength:
     overrideState: 1
-    value: 29
+    value: 19
   kernelSize:
     overrideState: 0
     value: 1
@@ -1470,7 +1520,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2.05
+    value: 2.27
   color:
     overrideState: 1
     value: {r: 0, g: 0, b: 0, a: 1}
@@ -1488,7 +1538,7 @@ MonoBehaviour:
     value: -12
   thicknessModifier:
     overrideState: 1
-    value: 1.78
+    value: 2.6
   directLightingStrength:
     overrideState: 0
     value: 0
@@ -1516,7 +1566,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: -47.9
+    value: 31.02
   intensityX:
     overrideState: 0
     value: 1
