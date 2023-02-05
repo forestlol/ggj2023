@@ -25,6 +25,7 @@ public class PlayerMovement : Movement
     {
         base.Start();
         cam = Camera.main;
+        GameManager.instance.playerStats = this;
     }
 
     // Update is called once per frame

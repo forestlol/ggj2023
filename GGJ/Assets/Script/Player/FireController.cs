@@ -29,15 +29,22 @@ public class FireController : MonoBehaviour
 
     private void Start()
     {
+        GameManager.instance.player = this;
         //Can take in a string value to change the default starting weapon
         int count = GameManager.instance.GetUserWeaponsCount();
         if(count == 0)
-            TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
+            TakeWeapon(GameManager.instance.GetWeaponType("Rocket"));
         else
         {
             currentWeapon = GameManager.instance.GetUserWSeapons();
             EquipSavedWeapons();
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            SceneChanger.instance.LoadScene("Zj_test");
     }
 
     void EquipSavedWeapons()
@@ -84,5 +91,10 @@ public class FireController : MonoBehaviour
         //Find the gun oject with via the weapon and apply the new stats
         gunDict[currentWeaponDict[weapon.weaponName]].AddStats(currentWeaponDict[weapon.weaponName], spawnPoint);
 
+    }
+
+    public List<Weapon> GetCurrentWeapon()
+    {
+        return currentWeapon;
     }
 }

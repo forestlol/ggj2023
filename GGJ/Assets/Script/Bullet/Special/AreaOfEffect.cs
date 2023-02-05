@@ -29,29 +29,29 @@ public class AreaOfEffect : Bullet
                 Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
                 Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
             }
-            Destroy(this.gameObject);
-            return;
         }
-        int damage = m_EnemyControllers.Count * bulletDamage;
-        for (int i = 0; i < m_EnemyControllers.Count; ++i)
+        else
         {
-            
-            if(m_EnemyControllers[i].GetComponent<EnemyController>())
+            int damage = m_EnemyControllers.Count * bulletDamage;
+            for (int i = 0; i < m_EnemyControllers.Count; ++i)
+            {
                 m_EnemyControllers[i].GetComponent<EnemyController>().DoDamage(bulletDamage);
+            }
+
+            if (bulletHitEffect != null)
+            {
+                Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
+                Vector3 damageSpawnPosition = transform.position + new Vector3(0, 1f, 0);
+                Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
+                CFXR_ParticleText temp = Instantiate(damageText, damageSpawnPosition, Quaternion.identity);
+                temp.UpdateText(damage.ToString());
+                Destroy(temp.gameObject, 0.5f);
+            }
+
         }
-        if (bulletHitEffect != null)
-        {
-            Vector3 spawnPosition = transform.position + new Vector3(0, 0.25f, 0);
-            Vector3 damageSpawnPosition = transform.position + new Vector3(0, 1f, 0);
-            Instantiate(bulletHitEffect, spawnPosition, Quaternion.identity);
-            CFXR_ParticleText temp = Instantiate(damageText, damageSpawnPosition, Quaternion.identity);
-            temp.UpdateText(damage.ToString());
-            Destroy(temp.gameObject, 0.5f);
-        }
-        Destroy(gameObject);
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public new void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -67,13 +67,14 @@ public class AreaOfEffect : Bullet
         }
     }
 
-    public new void OnCollisionEnter(Collision collision)
+    new void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Explode();
+            Destroy(this.gameObject);
         }
     }
 }

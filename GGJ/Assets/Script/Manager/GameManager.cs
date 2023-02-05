@@ -40,31 +40,21 @@ public class GameManager : MonoBehaviour
     List<Weapon> currentWeapon = new List<Weapon>();
     int currentLevel;
 
-    FireController player;
-    PlayerMovement playerStats;
+    public FireController player;
+    public PlayerMovement playerStats;
 
     private void Awake()
     {
+        DontDestroyOnLoad(this.gameObject);
+
         GameManager[] gm = GameObject.FindObjectsOfType<GameManager>();
         if (gm.Length > 1)
             Destroy(this.gameObject);
 
-        DontDestroyOnLoad(this.gameObject);
 
         instance = this;
 
         AddWeaponToDictionary();
-        GetPlayerData();
-    }
-
-    void GetPlayerData()
-    {
-        if (!player || !playerStats)
-        {
-            player = GameObject.FindObjectOfType<FireController>();
-            playerStats = GameObject.FindObjectOfType<PlayerMovement>();
-        }
-        
     }
 
     // Pushes all custom created weapon to the dictionary
@@ -181,9 +171,12 @@ public class GameManager : MonoBehaviour
     {
         return currentWeapon.Count;
     } 
-    public void SetUserWeapons(List<Weapon> weapons) {
-        currentWeapon = weapons;
+
+    public void SetUserWeapons()
+    {
+        currentWeapon = player.GetCurrentWeapon();
     }
+
     public List<Weapon> GetUserWSeapons()
     {
         return currentWeapon;
