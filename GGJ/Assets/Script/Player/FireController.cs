@@ -32,13 +32,19 @@ public class FireController : MonoBehaviour
         GameManager.instance.player = this;
         //Can take in a string value to change the default starting weapon
         int count = GameManager.instance.GetUserWeaponsCount();
-        if(count == 0)
+        if(count == 0) 
             TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
         else
         {
             currentWeapon = GameManager.instance.GetUserWSeapons();
             EquipSavedWeapons();
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            SceneChanger.instance.LoadScene("Zj_test");
     }
 
     void EquipSavedWeapons()

@@ -30,7 +30,6 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     CFXR_Effect levelUpEffect;
 
-
     Weapon weapon;
     public static GameManager instance;
 
@@ -43,18 +42,26 @@ public class GameManager : MonoBehaviour
     public FireController player;
     public PlayerMovement playerStats;
 
+    public int room_size = 3, current_game_Level = 1, enemyHealthBonus = 0;
+
     private void Awake()
     {
+        if (instance)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(this.gameObject);
-
-        GameManager[] gm = GameObject.FindObjectsOfType<GameManager>();
-        if (gm.Length > 1)
-            Destroy(this.gameObject);
-
 
         instance = this;
 
         AddWeaponToDictionary();
+    }
+
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
     }
 
     // Pushes all custom created weapon to the dictionary
@@ -181,6 +188,21 @@ public class GameManager : MonoBehaviour
     {
         return currentWeapon;
     }
+
+    public void Game_CompletRoom()
+    {
+        current_game_Level++;
+        room_size++;
+        enemyHealthBonus += 10;
+    }
+
+    public void Game_ResetGameStats()
+    {
+        current_game_Level = 1;
+        room_size = 3;
+        enemyHealthBonus = 0;
+        currentWeapon.Clear();
+    }
 }
 
 [Serializable]
@@ -217,3 +239,4 @@ public class Weapon
     [Space]
     public string soundID;
 }
+
