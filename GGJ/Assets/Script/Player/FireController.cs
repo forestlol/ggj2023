@@ -108,7 +108,7 @@ public class FireController : MonoBehaviour
         foreach (Gun gun in guns)
         {
             yield return new WaitForSeconds(gun.coolDown);
-            gun.canFire = isTrue;
+            gun.enabled = isTrue;
         }
     }
 }

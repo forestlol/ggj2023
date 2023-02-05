@@ -59,8 +59,6 @@ public class Gun : MonoBehaviour
     public virtual IEnumerator Fire()
     {
         canFire = false;
-        yield return new WaitForSeconds(coolDown);
-
         for (int x = 0; x < numberOfBullet; ++x)
         {
             //To do: Make a sphere cast to get array of GameObject[]

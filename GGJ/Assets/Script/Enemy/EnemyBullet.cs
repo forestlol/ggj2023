@@ -13,7 +13,10 @@ public class EnemyBullet : MonoBehaviour
     [HideInInspector]
     public CFXR_ParticleText damageText;
 
-
+    private void Start()
+    {
+        Destroy(this.gameObject, 3);
+    }
     public void SetDamagetext(CFXR_ParticleText effect)
     {
         damageText = effect;
@@ -46,11 +49,5 @@ public class EnemyBullet : MonoBehaviour
             }
             Destroy(gameObject);
         }
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("tree"))
-            Destroy(gameObject);
     }
 }
