@@ -30,7 +30,7 @@ public class Room : MonoBehaviour
             enemy.m_room = this;
             enemy.maxHealth += GameManager.instance.enemyHealthBonus;
             enemy.health += GameManager.instance.enemyHealthBonus;
-            enemy.DoDamage(0);
+            //enemy.DoDamage(0);
             
         }
     }

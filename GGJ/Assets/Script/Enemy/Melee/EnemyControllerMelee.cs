@@ -52,7 +52,10 @@ public class EnemyControllerMelee : EnemyController
 
     public override void DoDamage(int damage)
     {
-        GameManager.instance.IncreaseEXP(10);
+        if (damage > 0)
+        {
+            GameManager.instance.IncreaseEXP(10);
+        }
         base.DoDamage(damage);
     }
 
