@@ -31,7 +31,18 @@ public class Movement : MonoBehaviour
     public virtual void Move(float moveX, float moveZ)
     {
         //rb.MovePosition(transform.position + (Vector3.forward * moveSpeed * Time.deltaTime * moveZ) + (Vector3.right * moveSpeed * Time.deltaTime * moveX));
-        rb.MovePosition(transform.position + (m_camera_Transform.forward * moveSpeed * Time.deltaTime * moveZ) + (m_camera_Transform.right * moveSpeed * Time.deltaTime * moveX));
+
+        Vector3 forward = m_camera_Transform.forward;
+        forward.y = 0;
+
+        Vector3 right = m_camera_Transform.right;
+        right.y = 0;
+
+        forward.Normalize();
+        right.Normalize();
+
+
+        rb.MovePosition(transform.position + (forward * moveSpeed * Time.deltaTime * moveZ) + (right * moveSpeed * Time.deltaTime * moveX));
     }
 
 
