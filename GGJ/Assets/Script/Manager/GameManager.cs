@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         GUI_Gameplay.instance.SetExpTxt(experience, expCap, currentLevel);
 
-        if (experience > expCap)
+        if (experience >= expCap)
             LevelUp();
     }
 
