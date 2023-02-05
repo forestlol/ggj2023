@@ -993,7 +993,7 @@ MonoBehaviour:
     fireRate: 1
     numberOfBullet: 1
     bulletDamage: 10
-    bulletSpeed: 25
+    bulletSpeed: 12
     coolDown: 3
     hitEffect: {fileID: 8512829066019941429, guid: 49b7fd8715ad1af4493a5d995ba7735a, type: 3}
     gun: {fileID: 8524143972016808690, guid: a24f718dd53e19040a382e47c0e1e98c, type: 3}
