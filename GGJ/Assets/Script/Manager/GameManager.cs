@@ -157,6 +157,11 @@ public class GameManager : MonoBehaviour
     {
         playerStats.IncreaseSpeed(value);
     }
+
+    public Transform GetPlayerPosition()
+    {
+        return player.transform;
+    }
 }
 
 [Serializable]
