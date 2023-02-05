@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
 
     public void OnMenuClicked()
     {
+        AudioManager.instance.PlaySound("click", transform);
         SceneChanger.instance.LoadScene("Main Menu");
     }
 }

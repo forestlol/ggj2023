@@ -131,6 +131,7 @@ public class GameManager : MonoBehaviour
     // Give player the weapon
     public void SelectWeapon(int value)
     {
+        AudioManager.instance.PlaySound("click", transform);
         levelUpPanel.SetActive(false);
         GiveWeapon(generatedWeapon[value]);
         Time.timeScale = 1;
