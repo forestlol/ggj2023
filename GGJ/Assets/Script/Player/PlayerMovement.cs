@@ -22,6 +22,8 @@ public class PlayerMovement : Movement
 
     Unit_Player player;
 
+    private FireController fireControl;
+
     // Start is called before the first frame update
     new void Start()
     {
@@ -29,8 +31,11 @@ public class PlayerMovement : Movement
         cam = Camera.main;
         GameManager.instance.playerStats = this;
 
-        if(!player)
+        if (!player)
+        {
             player = GetComponent<Unit_Player>();
+            fireControl = GetComponent<FireController>();
+        }
     }
 
     // Update is called once per frame
@@ -40,9 +45,11 @@ public class PlayerMovement : Movement
         moveZ = Input.GetAxis("Vertical");
 
         if(FocusOnClosestEnemy(focusRange)){
+            fireControl.ToggleFire(true);
             return;
         }
 
+        fireControl.ToggleFire(false);
         FocusOnMousePointer();
     }
 

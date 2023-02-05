@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         GUI_Gameplay.instance.SetLevelTxt(current_game_Level);
-        GUI_Gameplay.instance.SetExpTxt(experience, expCap);
+        GUI_Gameplay.instance.SetExpTxt(experience, expCap, currentLevel);
     }
 
     // Pushes all custom created weapon to the dictionary
@@ -83,8 +83,7 @@ public class GameManager : MonoBehaviour
         amount = amount + currentLevel;
         experience += amount;
 
-
-        GUI_Gameplay.instance.SetExpTxt(experience, expCap);
+        GUI_Gameplay.instance.SetExpTxt(experience, expCap, currentLevel);
 
         if (experience > expCap)
             LevelUp();

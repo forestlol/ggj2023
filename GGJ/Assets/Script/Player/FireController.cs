@@ -90,11 +90,18 @@ public class FireController : MonoBehaviour
 
         //Find the gun oject with via the weapon and apply the new stats
         gunDict[currentWeaponDict[weapon.weaponName]].AddStats(currentWeaponDict[weapon.weaponName], spawnPoint);
-
     }
 
     public List<Weapon> GetCurrentWeapon()
     {
         return currentWeapon;
+    }
+
+    public void ToggleFire(bool istrue)
+    {
+        foreach(Gun gun in guns)
+        {
+            gun.canFire = istrue;
+        }
     }
 }

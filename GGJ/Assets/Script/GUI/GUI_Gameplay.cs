@@ -18,16 +18,16 @@ public class GUI_Gameplay : MonoBehaviour
     private void Start()
     {
         GUI_Gameplay.instance.SetLevelTxt(GameManager.instance.current_game_Level);
-        GUI_Gameplay.instance.SetExpTxt(GameManager.instance.experience, GameManager.instance.expCap);
+        GUI_Gameplay.instance.SetExpTxt(GameManager.instance.experience, GameManager.instance.expCap, GameManager.instance.GetCurrentLevel());
     }
 
-    public void SetLevelTxt(int level)
+    public void SetLevelTxt(int floor)
     {
-        txt_level.text = "Level - " + level;
+        txt_level.text = "Level - " + floor;
     }
 
-    public void SetExpTxt(int exp, int maxexp)
+    public void SetExpTxt(int exp, int maxexp, int level)
     {
-        txt_exp.text = "Exp - " + exp + "/" + maxexp;
+        txt_exp.text = "Level - " + level + "\nExp - " + exp + "/" + maxexp;
     }
 }
