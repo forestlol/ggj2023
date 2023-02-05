@@ -28,6 +28,10 @@ public class Room : MonoBehaviour
         foreach(EnemyController enemy in enemy_Units)
         {
             enemy.m_room = this;
+            enemy.maxHealth += GameManager.instance.enemyHealthBonus;
+            enemy.health += GameManager.instance.enemyHealthBonus;
+            enemy.DoDamage(0);
+            
         }
     }
 
