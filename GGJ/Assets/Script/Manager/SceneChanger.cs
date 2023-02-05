@@ -25,6 +25,7 @@ public class SceneChanger : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        AudioManager.instance.PlaySound("click", transform);
         StartCoroutine(LoadLevel(sceneName));
     }
 
@@ -40,6 +41,7 @@ public class SceneChanger : MonoBehaviour
 
     public void QuitGame()
     {
+        AudioManager.instance.PlaySound("click", transform);
         Application.Quit();
     }
 }
