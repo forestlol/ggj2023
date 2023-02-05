@@ -30,7 +30,30 @@ public class FireController : MonoBehaviour
     private void Start()
     {
         //Can take in a string value to change the default starting weapon
-        TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
+        int count = GameManager.instance.GetUserWeaponsCount();
+        if(count == 0)
+            TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
+        else
+        {
+            currentWeapon = GameManager.instance.GetUserWSeapons();
+            EquipSavedWeapons();
+        }
+    }
+
+    void EquipSavedWeapons()
+    {
+        for (int i = 0; i < currentWeapon.Count; ++i)
+        {
+            AudioManager.instance.PlaySound("equip", transform);
+
+            currentWeapon.Add(currentWeapon[i]);
+            currentWeaponDict[currentWeapon[i].weaponName] = currentWeapon[i]; //This is for upgrading purpose, faster query
+
+            gun = Instantiate(currentWeapon[i].gun, spawnPoint.transform); //Create a new gunObj and store at the firePoint
+            gun.AddStats(currentWeapon[i], spawnPoint); // Parse in the stat from weapon
+
+            gunDict[currentWeapon[i]] = gun;
+        }
     }
 
     // Take the weapon from the Game Manager pool

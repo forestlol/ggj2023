@@ -9,13 +9,6 @@ using CartoonFX;
 public class GameManager : MonoBehaviour
 {
     [SerializeField]
-    FireController player;
-    [SerializeField]
-    PlayerMovement playerStats;
-
-    [Space]
-
-    [SerializeField]
     GameObject levelUpPanel;
     [SerializeField]
     List<Button> gameButton;
@@ -44,13 +37,34 @@ public class GameManager : MonoBehaviour
     Dictionary<string, Weapon> weaponDict = new Dictionary<string, Weapon>();
     List<string> weaponNameList = new List<string>();
     List<Weapon> generatedWeapon = new List<Weapon>();
+    List<Weapon> currentWeapon = new List<Weapon>();
     int currentLevel;
+
+    FireController player;
+    PlayerMovement playerStats;
 
     private void Awake()
     {
+        GameManager[] gm = GameObject.FindObjectsOfType<GameManager>();
+        if (gm.Length > 1)
+            Destroy(this.gameObject);
+
+        DontDestroyOnLoad(this.gameObject);
+
         instance = this;
 
         AddWeaponToDictionary();
+        GetPlayerData();
+    }
+
+    void GetPlayerData()
+    {
+        if (!player || !playerStats)
+        {
+            player = GameObject.FindObjectOfType<FireController>();
+            playerStats = GameObject.FindObjectOfType<PlayerMovement>();
+        }
+        
     }
 
     // Pushes all custom created weapon to the dictionary
@@ -162,6 +176,18 @@ public class GameManager : MonoBehaviour
     {
         return player.transform;
     }
+
+    public int GetUserWeaponsCount()
+    {
+        return currentWeapon.Count;
+    } 
+    public void SetUserWeapons(List<Weapon> weapons) {
+        currentWeapon = weapons;
+    }
+    public List<Weapon> GetUserWSeapons()
+    {
+        return currentWeapon;
+    }
 }
 
 [Serializable]
@@ -173,7 +199,6 @@ public class Weapon
     [Space(5)]
 
     public int weaponLevel;
-    public GameObject weaponMesh;
     public Rigidbody bullet;
 
     [Space]
