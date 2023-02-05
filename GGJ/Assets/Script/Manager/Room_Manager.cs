@@ -21,8 +21,6 @@ public class Room_Manager : MonoBehaviour
     [SerializeField]
     private Dictionary<Vector2Int, Room> map = new Dictionary<Vector2Int, Room>();
 
-    [SerializeField]
-    private int map_size = 5, map_generated_size;
     private int room_left = 0, endRoomIndex = 0;
 
     public Room GetCurrentRoom
@@ -44,8 +42,8 @@ public class Room_Manager : MonoBehaviour
 
     private void Start()
     {
-        room_left = map_size;
-        endRoomIndex = Random.Range(1, map_size - 1);
+        room_left = GameManager.instance.room_size;
+        endRoomIndex = Random.Range(1, GameManager.instance.room_size - 1);
 
         map.Add(Vector2Int.zero, current_room);
         
@@ -155,7 +153,6 @@ public class Room_Manager : MonoBehaviour
         map.Add(coordinate, newRoom);
         roomList.Add(newRoom);
 
-        map_generated_size++;
         room_left--;
         return newRoom;
     }
