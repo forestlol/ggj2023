@@ -27,7 +27,7 @@ public class Piercing : Bullet
         }
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public new void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
     }

@@ -36,7 +36,8 @@ public class AreaOfEffect : Bullet
         for (int i = 0; i < m_EnemyControllers.Count; ++i)
         {
             
-            m_EnemyControllers[i].GetComponent<EnemyController>().DoDamage(bulletDamage);
+            if(m_EnemyControllers[i].GetComponent<EnemyController>())
+                m_EnemyControllers[i].GetComponent<EnemyController>().DoDamage(bulletDamage);
         }
         if (bulletHitEffect != null)
         {
@@ -66,7 +67,7 @@ public class AreaOfEffect : Bullet
         }
     }
 
-    public override void OnCollisionEnter(Collision collision)
+    public new void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
 
