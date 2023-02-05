@@ -207,7 +207,7 @@ public class GameManager : MonoBehaviour
         lastFloor = current_game_Level;
         lastEXP = experience;
 
-        if (current_game_Level > 1)
+        if (current_game_Level > 10)
         {
             SceneChanger.instance.LoadScene("Credits");
         }
