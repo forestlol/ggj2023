@@ -200,6 +200,7 @@ public class GameManager : MonoBehaviour
         current_game_Level++;
         room_size++;
         enemyHealthBonus += 10;
+        SetUserWeapons();
     }
 
     public void Game_ResetGameStats()
