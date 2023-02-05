@@ -29,6 +29,11 @@ public class SceneChanger : MonoBehaviour
         StartCoroutine(LoadLevel(sceneName));
     }
 
+    public void TestLoad(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
+    }
+
     IEnumerator LoadLevel(string sceneName){
         loadingScreen.SetActive(true);
         operation = SceneManager.LoadSceneAsync(sceneName);

@@ -142,6 +142,7 @@ public class GameManager : MonoBehaviour
     void GiveWeapon(Weapon weapon)
     {
         player.TakeWeapon(weapon);
+        SetUserWeapons();
     }
 
     // Activate once the player receive the weapon
@@ -151,7 +152,7 @@ public class GameManager : MonoBehaviour
     {
         Weapon temp = weapon;
         ++weapon.weaponLevel;
-        temp.bulletDamage += temp.bulletDamage;
+        temp.bulletDamage += 2;
 
         if (temp.weaponName.Contains("upgrade"))
             return temp;
@@ -200,7 +201,6 @@ public class GameManager : MonoBehaviour
         current_game_Level++;
         room_size++;
         enemyHealthBonus += 10;
-        SetUserWeapons();
     }
 
     public void Game_ResetGameStats()
