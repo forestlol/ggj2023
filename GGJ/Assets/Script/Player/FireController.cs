@@ -1,10 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading.Tasks;
-using UnityEditor.Animations;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class FireController : MonoBehaviour
 {
