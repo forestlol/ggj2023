@@ -7,7 +7,7 @@ public class AreaOfEffect : Bullet
 {
     List<GameObject> m_EnemyControllers = new List<GameObject>();
 
-    private void Start()
+    private new void Start()
     {
         StartCoroutine(Delay());
     }

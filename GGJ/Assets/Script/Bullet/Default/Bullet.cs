@@ -12,6 +12,11 @@ public class Bullet : MonoBehaviour
     [HideInInspector]
     public CFXR_ParticleText damageText;
 
+    public virtual void Start()
+    {
+        Destroy(this.gameObject, 5);
+    }
+
     public void SetDamagetext(CFXR_ParticleText effect)
     {
         damageText = effect;

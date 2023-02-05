@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Piercing : Bullet
 {
-    private void Start()
+    public override void Start()
     {
         Destroy(this.gameObject, 3);
     }
