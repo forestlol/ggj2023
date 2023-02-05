@@ -22,7 +22,7 @@ public class Gun : MonoBehaviour
     [HideInInspector]
     public GameObject hitEffect;
     [HideInInspector]
-    public bool canFire = true;
+    public bool canFire;
     [HideInInspector]
     public int weaponLevel;
     [HideInInspector]

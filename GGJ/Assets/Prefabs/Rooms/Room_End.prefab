@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 3023809772343571775}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -1161,7 +1161,7 @@ GameObject:
   - component: {fileID: 933737333794996993}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -2757,7 +2757,7 @@ GameObject:
   - component: {fileID: 1492701167193516855}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -3896,7 +3896,7 @@ GameObject:
   - component: {fileID: 2134811387614829475}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4785,7 +4785,7 @@ GameObject:
   - component: {fileID: 2659044951607060049}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -4965,7 +4965,7 @@ GameObject:
   - component: {fileID: 2975128660127474718}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -5937,7 +5937,7 @@ GameObject:
   - component: {fileID: 3301452777005444993}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -6993,7 +6993,7 @@ GameObject:
   - component: {fileID: 3471250797748527335}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -8672,7 +8672,7 @@ GameObject:
   - component: {fileID: 4108460109415971790}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9713,7 +9713,7 @@ GameObject:
   - component: {fileID: 5229270760871800767}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -9977,7 +9977,7 @@ GameObject:
   - component: {fileID: 5271493969866042963}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -11573,7 +11573,7 @@ GameObject:
   - component: {fileID: 6133360275522611517}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -12058,7 +12058,7 @@ GameObject:
   - component: {fileID: 8701899932446417080}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -13784,7 +13784,7 @@ GameObject:
   - component: {fileID: 1356513347130414602}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14589,7 +14589,7 @@ GameObject:
   - component: {fileID: 6731586618796589056}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -14853,7 +14853,7 @@ GameObject:
   - component: {fileID: 7008167475798526628}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -16616,7 +16616,7 @@ GameObject:
   - component: {fileID: 7159028099421667133}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -17611,7 +17611,7 @@ GameObject:
   - component: {fileID: 545188463210091194}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -18584,7 +18584,7 @@ GameObject:
   - component: {fileID: 8005771905748470323}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -32389,7 +32389,7 @@ GameObject:
   - component: {fileID: 8680439104807535798}
   m_Layer: 0
   m_Name: Tile_1_A
-  m_TagString: Untagged
+  m_TagString: tree
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295

@@ -80,12 +80,13 @@ public class EnemyControllerMelee : EnemyController
     {
         if (other.CompareTag("Player")) {
             Debug.Log("Dealt " + damage + " damage to player");
-            other.GetComponent<Unit>().DoDamage(damage);
 
             switch (meleeClass) {
                 case MeleeClass.Melee:
+                    other.GetComponent<Unit>().DoDamage(damage);
                     break;
                 case MeleeClass.Suicidal:
+                    other.GetComponent<Unit>().DoDamage(damage * 2);
                     DoDeath();
                     break;
             }

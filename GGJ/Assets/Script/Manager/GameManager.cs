@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     public int experience;
     [SerializeField]
-    public int expCap = 100;
+    public int expCap;
 
     [Space]
     [SerializeField]
@@ -61,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        experience = 0;
+        expCap = 100;
         GUI_Gameplay.instance.SetLevelTxt(current_game_Level);
         GUI_Gameplay.instance.SetExpTxt(experience, expCap, currentLevel);
     }
@@ -187,7 +189,7 @@ public class GameManager : MonoBehaviour
         currentWeapon = player.GetCurrentWeapon();
     }
 
-    public List<Weapon> GetUserWSeapons()
+    public List<Weapon> GetUserWeapons()
     {
         return currentWeapon;
     }
