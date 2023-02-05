@@ -214,6 +214,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Upgradehealth(5);
+            player.GetComponent<Unit>().health = player.GetComponent<Unit>().maxHealth;
+            player.GetComponent<Unit>().DoDamage(0);
             SceneChanger.instance.LoadScene("Scene_Prototype");
         }
     }
@@ -225,6 +228,7 @@ public class GameManager : MonoBehaviour
         enemyHealthBonus = 0;
         currentWeapon.Clear();
     }
+
     public int GetExperience()
     {
         return experience;
