@@ -44,4 +44,10 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("tree"))
+            Destroy(this.gameObject);
+    }
 }
