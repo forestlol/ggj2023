@@ -15,13 +15,19 @@ public class GUI_Gameplay : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        GUI_Gameplay.instance.SetLevelTxt(GameManager.instance.current_game_Level);
+        GUI_Gameplay.instance.SetExpTxt(GameManager.instance.experience, GameManager.instance.expCap);
+    }
+
     public void SetLevelTxt(int level)
     {
         txt_level.text = "Level - " + level;
     }
 
-    public void SetExpTxt(int exp)
+    public void SetExpTxt(int exp, int maxexp)
     {
-        txt_exp.text = "Exp - " + exp;
+        txt_exp.text = "Exp - " + exp + "/" + maxexp;
     }
 }

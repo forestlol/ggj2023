@@ -8,8 +8,8 @@ public class EndRoom : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            GameManager.instance.Game_CompletRoom();
             SceneChanger.instance.LoadScene("Scene_Prototype");
+            GameManager.instance.Game_CompletRoom();
         }
     }
 }

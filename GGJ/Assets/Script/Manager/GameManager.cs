@@ -22,9 +22,9 @@ public class GameManager : MonoBehaviour
     [Space]
 
     [SerializeField]
-    int experience;
+    public int experience;
     [SerializeField]
-    int expCap = 100;
+    public int expCap = 100;
 
     [Space]
     [SerializeField]
@@ -61,7 +61,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+        GUI_Gameplay.instance.SetLevelTxt(current_game_Level);
+        GUI_Gameplay.instance.SetExpTxt(experience, expCap);
     }
 
     // Pushes all custom created weapon to the dictionary
@@ -81,6 +82,9 @@ public class GameManager : MonoBehaviour
     {
         amount = amount + currentLevel;
         experience += amount;
+
+
+        GUI_Gameplay.instance.SetExpTxt(experience, expCap);
 
         if (experience > expCap)
             LevelUp();
