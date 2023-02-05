@@ -23,7 +23,7 @@ public class GUI_Gameplay : MonoBehaviour
 
     public void SetLevelTxt(int floor)
     {
-        txt_level.text = "Level - " + floor;
+        txt_level.text = "Floor - " + floor;
     }
 
     public void SetExpTxt(int exp, int maxexp, int level)

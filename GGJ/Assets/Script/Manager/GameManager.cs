@@ -226,6 +226,9 @@ public class GameManager : MonoBehaviour
         current_game_Level = 1;
         room_size = 3;
         enemyHealthBonus = 0;
+        experience = 0;
+        expCap = 100;
+        currentLevel = 1;
         currentWeapon.Clear();
     }
 

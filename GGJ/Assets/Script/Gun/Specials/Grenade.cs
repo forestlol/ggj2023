@@ -24,7 +24,8 @@ public class Grenade : Gun
             yield return new WaitForSeconds(fireRate);
             Rigidbody bullet;
             bullet = Instantiate(m_bullet, transform.position, transform.rotation);
-            bullet.AddForce((spawnPoint.forward * (bulletSpeed/2)) + (spawnPoint.up * (bulletSpeed/2)), ForceMode.Impulse);
+            //bullet.AddForce((spawnPoint.forward * (bulletSpeed/2)) + (spawnPoint.up * (bulletSpeed/2)), ForceMode.Impulse);
+            bullet.AddForce((spawnPoint.forward * (bulletSpeed / 2)), ForceMode.Impulse);
             bullet.GetComponent<Bullet>().SetDamagetext(effect);
             bullet.GetComponent<Bullet>().SpawnBullet(bulletDamage);
             bullet.GetComponent<Bullet>().SetHitEffect(hitEffect);

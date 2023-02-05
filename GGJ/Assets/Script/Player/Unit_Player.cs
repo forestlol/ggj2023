@@ -17,6 +17,7 @@ public class Unit_Player : Unit
 
 
         UIManager.instance.ShowGameOverPanel();
+        GameManager.instance.Game_ResetGameStats();
         Destroy(gameObject);
     }
 
