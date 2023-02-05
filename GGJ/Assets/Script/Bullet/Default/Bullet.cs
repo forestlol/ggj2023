@@ -14,7 +14,7 @@ public class Bullet : MonoBehaviour
 
     public virtual void Start()
     {
-        Destroy(this.gameObject, 5);
+        Destroy(this.gameObject, 1);
     }
 
     public void SetDamagetext(CFXR_ParticleText effect)
