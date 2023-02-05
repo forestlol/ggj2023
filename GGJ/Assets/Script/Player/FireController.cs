@@ -41,12 +41,6 @@ public class FireController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            SceneChanger.instance.LoadScene("Zj_test");
-    }
-
     void EquipSavedWeapons()
     {
         for (int i = 0; i < currentWeapon.Count; ++i)
