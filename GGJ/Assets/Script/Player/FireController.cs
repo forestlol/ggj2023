@@ -37,7 +37,7 @@ public class FireController : MonoBehaviour
             TakeWeapon(GameManager.instance.GetWeaponType("Pistol"));
         else
         {
-            currentWeapon = GameManager.instance.GetUserWSeapons();
+            currentWeapon = GameManager.instance.GetUserWeapons();
             EquipSavedWeapons();
         }
     }
