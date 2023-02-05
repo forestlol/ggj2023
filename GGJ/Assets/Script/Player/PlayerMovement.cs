@@ -20,12 +20,17 @@ public class PlayerMovement : Movement
     [SerializeField]
     float focusRange = 10;
 
+    Unit_Player player;
+
     // Start is called before the first frame update
     new void Start()
     {
         base.Start();
         cam = Camera.main;
         GameManager.instance.playerStats = this;
+
+        if(!player)
+            player = GetComponent<Unit_Player>();
     }
 
     // Update is called once per frame
@@ -43,8 +48,7 @@ public class PlayerMovement : Movement
 
     public void IncreaseHealth(int value)
     {
-        maxHealth += value;
-        currentHealth += value;
+        player.IncreaseHealth(value);
     }
     public void IncreaseSpeed(int value)
     {
