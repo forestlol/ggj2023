@@ -7,6 +7,8 @@ using TMPro;
 
 public class SceneChanger : MonoBehaviour
 {
+    public static SceneChanger instance;
+
     [Space]
     [SerializeField]
     GameObject loadingScreen;
@@ -15,9 +17,6 @@ public class SceneChanger : MonoBehaviour
     Image _progressBar;
 
     AsyncOperation operation;
-
-    public static SceneChanger instance;
-
 
     public void Awake()
     {
