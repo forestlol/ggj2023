@@ -45,14 +45,17 @@ public class Room_Manager : MonoBehaviour
         room_left = map_size;
 
         map.Add(Vector2Int.zero, current_room);
-
+        
         GenerateLevel(current_room);
         ConnectAllRooms();
 
-        foreach (KeyValuePair<Vector2Int, Room> room in map)
-        {
-            room.Value.ToggleConnection(true);
-        }
+        current_room.hasCleared = true;
+        current_room.ToggleConnection(true);
+
+        //foreach (KeyValuePair<Vector2Int, Room> room in map)
+        //{
+        //    room.Value.ToggleConnection(true);
+        //}
     }
 
     public void GenerateLevel(Room root_room)
@@ -132,7 +135,7 @@ public class Room_Manager : MonoBehaviour
             return null;
         }
 
-        Room newRoom = GameObject.Instantiate(m_room_prefab[0], map_transform);
+        Room newRoom = GameObject.Instantiate(m_room_prefab[Random.Range(0, m_room_prefab.Count)], map_transform);
         newRoom.room_coordinate = coordinate;
         newRoom.gameObject.name = "Room " + coordinate;
         newRoom.transform.position = new Vector3(coordinate.x * 30, 0, coordinate.y * 30);

@@ -8,11 +8,15 @@ public class Room : MonoBehaviour
 {
     public Vector2Int room_coordinate = new Vector2Int(0, 0);
 
+    public List<EnemyController> enemy_Units = new List<EnemyController>();
+
+    private int room_unit_cleared = 0;
+
     [SerializeField]
     private Connection left, right, up, down;
 
     Room connection_left, connection_right, connection_up, connection_down;
-    bool hasCleared = false;
+    public bool hasCleared = false;
 
     private void Start()
     {
@@ -20,8 +24,35 @@ public class Room : MonoBehaviour
         right.m_room = this;
         up.m_room = this;
         down.m_room = this;
+
+        foreach(EnemyController enemy in enemy_Units)
+        {
+            enemy.m_room = this;
+        }
     }
 
+    public void Connection_OnEnter_Player()
+    {
+        // Reached max
+        if (room_unit_cleared >= enemy_Units.Count)
+        {
+            hasCleared = true;
+            ToggleConnection(true);
+        }
+    }
+
+    public void Room_EnemyEliminate_Update()
+    {
+        room_unit_cleared++;
+
+        // Reached max
+        if(room_unit_cleared >= enemy_Units.Count)
+        {
+            ToggleConnection(true);
+            hasCleared = true;
+        }
+    }
+    
     public void AddConnection(CONNECTION_DIRECTION direction, Room room)
     {
         switch (direction)
